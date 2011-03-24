@@ -1,16 +1,17 @@
 START = xxxnote
 END = missing
+CLASS = $(PYTEX)/cls/document.cls
 
 all: document wc content.txt
 
 wc:
-	@./bin/wc content.tex -
+	@$(PYTEX)/wc content.tex -
 
 content.txt: content.tex
-	@./bin/clean content.tex content.txt
+	@$(PYTEX)/clean content.tex content.txt
 
 # 16 Nov 2010 : GWA : Add other cleaning rules here.
 
 clean: rulesclean
 
-include Makerules
+include $(PYTEX)/make/Makerules
